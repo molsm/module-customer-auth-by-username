@@ -1,0 +1,21 @@
+{
+    "name": "mmols/module-customer-auth-byusername",
+    "description": "Authenticate customer by username",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Maris Mols",
+            "email": "maris9229@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mmols\\CustomerAuthByUsername\\": ""
+        }
+    }
+}
