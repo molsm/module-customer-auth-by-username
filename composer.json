@@ -1,5 +1,5 @@
 {
-    "name": "mmols/module-customer-auth-byusername",
+    "name": "molsm/module-customer-auth-byusername",
     "description": "Authenticate customer by username",
     "license": "GPL-3.0",
     "authors": [
