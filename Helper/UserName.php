@@ -11,12 +11,12 @@ class UserName extends \Magento\Framework\App\Helper\AbstractHelper
     /** @var \Magento\Customer\Model\CustomerFactory $customerFactory */
     protected $customerFactory;
 
-    protected $scopeConfig;
-
-    public function __construct(\Magento\Customer\Model\CustomerFactory $customerFactory, \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig)
-    {
-        $this->scopeConfig = $scopeConfig;
+    public function __construct(
+        \Magento\Framework\App\Helper\Context $context,
+        \Magento\Customer\Model\CustomerFactory $customerFactory
+    ) {
         $this->customerFactory = $customerFactory;
+        parent::__construct($context);
     }
 
     /**
