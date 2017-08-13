@@ -43,6 +43,7 @@ class InstallData implements InstallDataInterface
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
+        $setup->startSetup();
         /** @var CustomerSetup $customerSetup */
         $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
         $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, 'user_name')->delete();
@@ -74,5 +75,7 @@ class InstallData implements InstallDataInterface
             ]);
 
         $attribute->save();
+
+        $setup->endSetup();
     }
 }
