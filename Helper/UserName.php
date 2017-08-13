@@ -6,7 +6,7 @@ use Magento\Store\Model\ScopeInterface;
 
 class UserName extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    const XML_PATH_AUTHENTICATE_BY_LOGIN_NAME = 'customer/startup/authenticate_by_login_name';
+    const XML_PATH_AUTHENTICATE_BY_USER_NAME = 'customer/startup/authenticate_by_user_name';
 
     /** @var \Magento\Customer\Model\CustomerFactory $customerFactory */
     protected $customerFactory;
@@ -24,7 +24,7 @@ class UserName extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isEnabledAuthenticationByLoginName()
     {
-        return (bool) $this->scopeConfig->getValue(self::XML_PATH_AUTHENTICATE_BY_LOGIN_NAME, ScopeInterface::SCOPE_STORE);
+        return (bool) $this->scopeConfig->getValue(self::XML_PATH_AUTHENTICATE_BY_USER_NAME, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -36,7 +36,7 @@ class UserName extends \Magento\Framework\App\Helper\AbstractHelper
     {
         /** @var \Magento\Customer\Model\ResourceModel\Customer\Collection $collection */
         $collection = $this->customerFactory->create()->getCollection();
-        $collection->addAttributeToFilter('login_name', ['eq' => $login]);
+        $collection->addAttributeToFilter('user_name', ['eq' => $login]);
 
         if ($collection->getSize() === 1) {
             if ($customerEmail = $collection->getFirstItem()->getEmail()) {
